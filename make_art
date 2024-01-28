@@ -1,0 +1,60 @@
+library(tidyverse)
+library(ggplot2)
+
+make_art <-
+  function(seed = runif(1, min = 1, max = 99999)) {
+    
+    set.seed(seed)
+    
+    number <- runif(1, min = 1, max = 999)
+    palette <- sample(colors(), 10)
+    
+    
+    
+    polar_plot <- function(number, palette) {
+      q3data <- tibble(
+        x0 = runif(number),
+        y0 = runif(number),
+        x1 = x0 + runif(number, min = -(runif(1)), max = runif(1)),
+        y1 = y0 + runif(number, min = -(runif(1)), max = runif(1)),
+        shade = runif(number),
+        size = runif(number)
+      )
+      
+      ggplot(data = q3data,
+             aes(
+               x = x0,
+               y = y0,
+               xend = x1,
+               yend = y1,
+               colour = shade,
+               size = size
+             )) +
+        coord_polar() +
+        scale_y_continuous(expand = c(0, 0), limits = c(0, 1)) +
+        scale_x_continuous(expand = c(0, 0), limits = c(0, 1)) +
+        scale_colour_gradientn(colours = palette) +
+        scale_size(range = c(0, 10)) +
+        theme_void()
+    }
+    
+    polar_plot1 <- function(number, palette) {
+      polar_plot(number, palette) + geom_segment(show.legend = FALSE)
+    }
+    
+    
+    polar_plot2 <- function(number, palette) {
+      polar_plot(number, palette) + geom_path(show.legend = FALSE)
+    }
+    
+    polar_plot3 <- function(number, palette) {
+      polar_plot(number, palette) + geom_point(show.legend = FALSE)
+    }
+    
+    
+    sample(list(polar_plot1(number, palette), polar_plot2(number, palette), 
+                polar_plot3(number, palette)), size = 1)
+  }
+
+
+make_art()
