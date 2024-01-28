@@ -42,7 +42,7 @@ remind_me <- function() {
     print(saturday_list, quote = FALSE)
   }
   
-    if (wday(Sys.time()) == 7) {
+    if (wday(Sys.time()) == 1) {
     print(sunday_list, quote = FALSE)
   }
   } else {
