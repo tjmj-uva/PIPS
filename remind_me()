@@ -1,0 +1,53 @@
+remind_me <- function() {
+  
+  monday_list <- list(c("Monday to-do list:", "PIPS lecure @ 13:00", "Start PIPS assignment/study"))
+  
+  tuesday_list <- list(c("Tuesday to-do list:", "Study day!"))
+  
+  wednesday_list <- list(c("Wednesday to-do list:", "PIPs lecture @ 13:00", "Check groceries"))
+  
+  thursday_list <- list(c("Thursday to-do list:", "PIPS due tomorrow!", "Double-check if you work tonight!"))
+  
+  friday_list <- list(c("Friday to-do list:", "PIPS assignment due!", "PIPs practical @ 13:00", 
+                        "Check meetings and work schedule for next week!"))
+  
+  saturday_list <- list(c("Saturday to-do list:", "Work @ 15:00", "Have you left anyone on 'read'?"))
+  
+  sunday_list <- list(c("Sunday to-do list:", "Change linens", "Laundry", "Vaccuum", "Organize", "Trash", 
+                        "Double-check calendar", "Submit work availability")) 
+  
+  if (as.Date("2024-01-08") <= Sys.Date() & Sys.Date() <= as.Date("2024-02-02")) {
+  
+    if (wday(Sys.time()) == 2) {
+      print(monday_list, quote = FALSE)
+    }
+    
+    if (wday(Sys.time()) == 3) {
+      print(tuesday_list, quote = FALSE)
+    }
+    
+    if (wday(Sys.time()) == 4) {
+      print(wednesday_list, quote = FALSE)
+    }
+    
+    if (wday(Sys.time()) == 5) {
+    print(thursday_list, quote = FALSE)
+  }
+    
+    if (wday(Sys.time()) == 6) {
+    print(friday_list, quote = FALSE)
+  }
+  
+    if (wday(Sys.time()) == 7) {
+    print(saturday_list, quote = FALSE)
+  }
+  
+    if (wday(Sys.time()) == 7) {
+    print(sunday_list, quote = FALSE)
+  }
+  } else {
+  print("Your reminders list and function dates need to be updated!", quote = FALSE)
+}
+}
+
+remind_me()
