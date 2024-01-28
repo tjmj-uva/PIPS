@@ -1,3 +1,6 @@
+install.packages("lubridate")
+library(lubridate)
+
 remind_me <- function() {
   
   monday_list <- list(c("Monday to-do list:", "PIPS lecure @ 13:00", "Start PIPS assignment/study"))
