@@ -1,0 +1,29 @@
+## cheat() function: ##
+
+cheat <- function(question) {
+  if (question == 1) {
+    cat("q1data <- rnorm(66, mean = 6.5, sd = 1, min = 3, max = 9) \n hist(q1data)")
+  } else if (question == 2) {
+    cat(
+      "q2data <- read.csv('https://bit.ly/3GLVQ86') \n
+        q2data <- as.data.frame(q2data) \n
+        ggplot(data = q2data) + \n
+          geom_point(aes(x = DATE, y = TMIN))"
+    )
+  } else if (question == 3) {
+    cat(
+      "dead_v_alive <- factor(titanic_train$Survived) \n
+        ggplot(data = titanic_train) + \n
+        geom_col(aes( \n
+        x = Sex, \n
+        y = as.numeric(factor(Sex)), \n
+        fill = dead_v_alive \n
+        )) + \n
+        scale_fill_discrete(labels = c('dead', 'alive')) + \n
+        labs(y = 'count', fill = 'How did it go?') + \n
+        ylim(0 , 600)"
+    )
+  }
+  
+  
+}
